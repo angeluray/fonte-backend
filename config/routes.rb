@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   resources :products
   resources :product_tags
   resources :employees
