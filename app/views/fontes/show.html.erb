@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fonte %>
+
+<div>
+  <%= link_to "Edit this fonte", edit_fonte_path(@fonte) %> |
+  <%= link_to "Back to fontes", fontes_path %>
+
+  <%= button_to "Destroy this fonte", @fonte, method: :delete %>
+</div>

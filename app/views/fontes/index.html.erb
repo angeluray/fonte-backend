@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Fontes</h1>
+
+<div id="fontes">
+  <% @fontes.each do |fonte| %>
+    <%= render fonte %>
+    <p>
+      <%= link_to "Show this fonte", fonte %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New fonte", new_fonte_path %>

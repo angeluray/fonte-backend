@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fontes
   resources :reviews
   resources :users
   resources :cities
