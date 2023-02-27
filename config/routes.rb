@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :market_categories
   resources :tags
   resources :products
   resources :product_tags
