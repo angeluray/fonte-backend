@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @market_category %>
+
+<div>
+  <%= link_to "Edit this market category", edit_market_category_path(@market_category) %> |
+  <%= link_to "Back to market categories", market_categories_path %>
+
+  <%= button_to "Destroy this market category", @market_category, method: :delete %>
+</div>

@@ -1,0 +1,2 @@
+class MarketCategory < ApplicationRecord
+end
