@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :products
+  resources :product_tags
   resources :employees
   resources :job_types
   resources :fontes
