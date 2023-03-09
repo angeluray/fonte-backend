@@ -45,6 +45,8 @@ gem "bootsnap", require: false
 
 gem 'devise'
 
+
+gem 'city-state'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
