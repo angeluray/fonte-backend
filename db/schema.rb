@@ -110,6 +110,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_220230) do
     t.string "role"
     t.integer "posts_counter"
     t.text "bio"
+    t.text "country"
+    t.text "state"
+    t.text "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
