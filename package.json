@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@rails/request.js": "^0.0.8"
+    "@rails/actiontext": "^7.0.4-3",
+    "@rails/request.js": "^0.0.8",
+    "trix": "^2.0.4"
   }
 }
