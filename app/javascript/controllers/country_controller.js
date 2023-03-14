@@ -1,12 +1,27 @@
 import { Controller } from "@hotwired/stimulus"
-import { get } from "@rails/request.js"
 
 export default class extends Controller {
-  change(event) {
-    let country = event.target.selectedOptions[0].value
 
-    get(`/addresses/states?country=${country}`, {
-      responseKind: "turbo-stream"
+  connect() {
+    console.log("Hello baby")
+  }
+
+  initialize() {
+    this.element.setAttribute("data-action", "change->country#loadCountryStates")
+  }
+
+  loadCountryStates() {
+    // alert("Selected baby!!")
+    const selectedCountry = this.element.options[this.element.selectedIndex].value
+    // alert(selectedCountry);
+    this.url = `/users/fetch_country_states?country=${selectedCountry}`
+    // this.url = `/users/fetch_country_states?country=${":" + selectedCountry}`
+    fetch(this.url, {
+      headers: {
+        Accept: "text/vnd.turbo-stream.html"
+      }
     })
+    .then(response => response.text())
+    .then(html=> Turbo.renderStreamMessage(html))
   }
 }
