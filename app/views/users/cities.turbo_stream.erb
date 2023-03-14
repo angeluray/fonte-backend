@@ -1,0 +1,12 @@
+<% if @cities.present? %>
+  <%= turbo_stream.replace "city_states_list" do %>
+    <div class="form-group" id="city_states_list">
+     <label class="form-states">cities</label>
+     <select name="user[city]" id="user_city">
+       <% @cities.each do |city| %>
+         <option value="<%= city %>"><%= city %></option>
+       <% end %>
+     </select>
+    </div>
+  <% end %>
+<% end %>
