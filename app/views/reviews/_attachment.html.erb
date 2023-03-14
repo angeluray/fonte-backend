@@ -1,0 +1,13 @@
+<% if review.image.attached? %>
+    <div class="row">
+        <% if review.image.image? %>
+            <div class="image-displayed">
+                <%= image_tag(review.image, class: "message-image") %>
+            </div>
+        <% elsif review.image.video? %>
+              <%= video_tag(url_for(review.image), class: "message-video", controls: "") %>
+        <% elsif review.image.audio? %>
+              <%= audio_tag(url_for(review.image), class: "message-audio", controls: "")%>
+        <% end %>
+    </div>
+<% end %>
