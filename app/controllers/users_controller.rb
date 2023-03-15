@@ -23,6 +23,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # Comments below are for future improvements.
+
+    # # Get the hash list of countries and states first.
+    # @countries = CS.get
+    # @states = CS.get @user.country
+
+    # # Access to the value of the key that match the value
+    # # obtained from the user params.
+
+    # @user.country = @country[@user.country]
+    # @user.state = @states[@user.state]
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
@@ -57,6 +69,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def fetch_country_states
+    @states = CS.get(params[:country]).invert.sort
+  end
+
+  def cities
+    country = params[:country]
+    state = params[:state]
+    @cities = CS.cities(state, country).sort
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -65,6 +87,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :age, :role, :posts_counter, :bio)
+      params.require(:user).permit(:name, :age, :born_on, :role, :posts_counter, :bio, :country, :state, :city)
     end
 end
