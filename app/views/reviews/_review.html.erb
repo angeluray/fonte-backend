@@ -1,22 +1,17 @@
 <div id="<%= dom_id review %>">
+
+  <h3>
+    <%= review.user.name %>
+  </h3>
+
+  <h3>
+    <%= review.fonte.name %>
+  </h3>
+
   <p>
-    <strong>Description:</strong>
     <%= review.description %>
   </p>
 
-  <p>
-    <strong>Video:</strong>
-    <%= review.video %>
-  </p>
-
-  <p>
-    <strong>Image:</strong>
-    <%= review.image %>
-  </p>
-
-  <p>
-    <strong>Type:</strong>
-    <%= review.type %>
-  </p>
+  <%= render 'reviews/attachment', review: review %>
 
 </div>
