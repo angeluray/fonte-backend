@@ -22,6 +22,7 @@ class FontesController < ApplicationController
   # POST /fontes or /fontes.json
   def create
     @fonte = Fonte.new(fonte_params)
+    @fonte.user_id = current_user.id
 
     respond_to do |format|
       if @fonte.save
@@ -65,6 +66,6 @@ class FontesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fonte_params
-      params.require(:fonte).permit(:name, :description, :rating)
+      params.require(:fonte).permit(:user_id, :profile_image, :name, :description, :rating)
     end
 end
