@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/mentions', to: 'mentions#index'
+
   devise_for :users
 
   resources :market_categories do
