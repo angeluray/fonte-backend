@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_012828) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_25_192721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,15 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_012828) do
     t.decimal "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "review_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "city_id", null: false
-    t.bigint "tag_id", null: false
-    t.bigint "market_category_id", null: false
-    t.index ["city_id"], name: "index_fontes_on_city_id"
-    t.index ["market_category_id"], name: "index_fontes_on_market_category_id"
-    t.index ["review_id"], name: "index_fontes_on_review_id"
-    t.index ["tag_id"], name: "index_fontes_on_tag_id"
     t.index ["user_id"], name: "index_fontes_on_user_id"
   end
 
@@ -131,6 +123,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_012828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "fonte_id", null: false
+    t.index ["fonte_id"], name: "index_reviews_on_fonte_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -161,6 +155,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_012828) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "mentionable"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -171,12 +166,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_012828) do
   add_foreign_key "cities", "countries"
   add_foreign_key "employees", "fontes"
   add_foreign_key "employees", "job_types"
-  add_foreign_key "fontes", "cities"
-  add_foreign_key "fontes", "market_categories"
-  add_foreign_key "fontes", "reviews"
-  add_foreign_key "fontes", "tags"
   add_foreign_key "fontes", "users"
   add_foreign_key "products", "fontes"
   add_foreign_key "products", "product_tags"
+  add_foreign_key "reviews", "fontes"
   add_foreign_key "reviews", "users"
 end
