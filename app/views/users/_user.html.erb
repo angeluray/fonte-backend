@@ -1,4 +1,9 @@
 <div id="<%= dom_id user %>">
+  
+  <% if user.image.attached? %>
+    <%= image_tag(user.image, style: "height: 50px;") %>
+  <% end %>
+  
   <p>
     <strong>Name:</strong>
     <%= user.name %>

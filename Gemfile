@@ -18,6 +18,11 @@ gem "puma", "~> 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
+gem "view_component"
+
+gem "tailwindcss-rails", "~> 2.0"
+
+
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -57,6 +62,7 @@ gem 'city-state'
 
 gem "letter_opener", group: :development
 
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -79,3 +85,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
