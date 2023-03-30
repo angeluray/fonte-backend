@@ -54,6 +54,7 @@ gem 'city-state'
 
 # gem 'requestjs-rails'
 
+gem "mapkick-rb"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -86,3 +87,5 @@ group :test do
   gem "webdrivers"
 end
 
+
+gem "geocoder", "~> 1.8"
