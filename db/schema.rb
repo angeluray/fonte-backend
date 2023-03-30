@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_192721) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_225804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_192721) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "fonte_id", null: false
+    t.index ["fonte_id"], name: "index_locations_on_fonte_id"
+    t.index ["latitude"], name: "index_locations_on_latitude"
+    t.index ["longitude"], name: "index_locations_on_longitude"
+  end
+
   create_table "market_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -167,6 +180,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_192721) do
   add_foreign_key "employees", "fontes"
   add_foreign_key "employees", "job_types"
   add_foreign_key "fontes", "users"
+  add_foreign_key "locations", "fontes"
   add_foreign_key "products", "fontes"
   add_foreign_key "products", "product_tags"
   add_foreign_key "reviews", "fontes"

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :locations
+
+  resources :fontes do
+    resources :locations
+  end
 
   get '/mentions', to: 'mentions#index'
 
