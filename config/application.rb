@@ -10,6 +10,7 @@ module FonteBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    ENV["MAPBOX_ACCESS_TOKEN"] = "pk.eyJ1IjoiYW5nZWx1cmF5IiwiYSI6ImNsZnU0djJmbzAwOHYzZGxob2czd2Q4azEifQ.QZG7Oj3hGMSjvpdfXSzZuQ"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
